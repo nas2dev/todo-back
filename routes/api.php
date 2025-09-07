@@ -15,5 +15,6 @@ Route::controller(TodoController::class)->prefix('todo')->group(function () {
     Route::get('/all', 'getAllTodos')->name('todo.getAllTodos');
     Route::put('/{id}/restore', 'restore')->name(name: 'todo.restore');
     Route::delete('/{id}/delete-permanently', 'forceDelete')->name('todo.forceDelete');
+    Route::delete('/trash/clear', 'clearAllTrash')->name('todo.clearAllTrash');
 
 });

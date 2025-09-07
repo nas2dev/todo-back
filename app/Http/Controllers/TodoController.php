@@ -105,4 +105,13 @@ class TodoController extends Controller
             "data" => $todo
         ], 200);
     }
+
+    public function clearAllTrash():JsonResponse {
+        $todos = Todo::onlyTrashed()->forceDelete();
+
+        return response()->json([
+            "message" => "Trash cleared succesfully",
+            "data" => $todos
+        ], 200);
+    }
 }
